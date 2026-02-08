@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Button from "@/components/common/Button";
+import AnimatedText from "@/components/common/AnimatedText";
 
 const heroContent = {
     greeting: "Hey there, I'm",
@@ -47,10 +48,10 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="relative min-h-screen flex items-center justify-center pt-20"
+            className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
         >
             <motion.div
-                className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+                className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -58,18 +59,17 @@ export default function Hero() {
                 {/* Greeting */}
                 <motion.p
                     variants={itemVariants}
-                    className="text-zinc-400 text-lg md:text-xl mb-4 font-medium"
+                    className="text-[var(--text-tertiary)] text-lg md:text-xl mb-4 font-medium"
                 >
                     {heroContent.greeting}
                 </motion.p>
 
                 {/* Name with gradient */}
-                <motion.h1
-                    variants={itemVariants}
-                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
-                >
-                    <span className="gradient-text">{heroContent.name}</span>
-                </motion.h1>
+                <motion.div variants={itemVariants} className="mb-6">
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+                        <span className="gradient-text">{heroContent.name}</span>
+                    </h1>
+                </motion.div>
 
                 {/* Role */}
                 <motion.div
@@ -77,18 +77,17 @@ export default function Hero() {
                     className="flex items-center gap-3 mb-8"
                 >
                     <div className="h-[2px] w-12 bg-gradient-to-r from-indigo-500 to-purple-500" />
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-zinc-300">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-[var(--text-secondary)]">
                         {heroContent.roles[0]}
                     </h2>
                 </motion.div>
 
                 {/* Tagline */}
-                <motion.p
-                    variants={itemVariants}
-                    className="text-lg md:text-xl text-zinc-500 max-w-2xl mb-12 leading-relaxed"
-                >
-                    {heroContent.tagline}
-                </motion.p>
+                <motion.div variants={itemVariants} className="max-w-2xl mb-12">
+                    <p className="text-lg md:text-xl text-[var(--text-tertiary)] leading-relaxed">
+                        {heroContent.tagline}
+                    </p>
+                </motion.div>
 
                 {/* CTAs */}
                 <motion.div
@@ -116,7 +115,7 @@ export default function Hero() {
 
                 {/* Scroll indicator */}
                 <motion.div
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2"
+                    className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block" // Hide on small mobile if needed, or keep
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.5, duration: 0.5 }}
@@ -125,29 +124,31 @@ export default function Hero() {
                         animate={{ y: [0, 10, 0] }}
                         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                         className="flex flex-col items-center gap-2"
+                        onClick={(e) => handleScroll(e, "#about")}
+                        style={{ cursor: "pointer" }}
                     >
-                        <span className="text-xs text-zinc-600 uppercase tracking-widest">Scroll</span>
-                        <div className="w-5 h-8 border border-zinc-700 rounded-full flex items-start justify-center p-1.5">
+                        <span className="text-xs text-[var(--text-tertiary)] uppercase tracking-widest">Scroll</span>
+                        <div className="w-5 h-8 border border-[var(--border-hover)] rounded-full flex items-start justify-center p-1.5">
                             <motion.div
                                 animate={{ y: [0, 8, 0] }}
                                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                                className="w-1 h-2 bg-zinc-500 rounded-full"
+                                className="w-1 h-2 bg-[var(--text-tertiary)] rounded-full"
                             />
                         </div>
                     </motion.div>
                 </motion.div>
             </motion.div>
 
-            {/* Decorative elements */}
-            <div className="absolute top-1/2 right-10 -translate-y-1/2 hidden xl:block">
+            {/* Decorative elements - Theme aware */}
+            <div className="absolute top-1/2 right-10 -translate-y-1/2 hidden xl:block pointer-events-none">
                 <motion.div
-                    className="w-64 h-64 border border-zinc-800 rounded-full"
+                    className="w-64 h-64 border border-[var(--border)] rounded-full"
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 0.2 }}
                     transition={{ delay: 1, duration: 1 }}
                 />
                 <motion.div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-zinc-800 rounded-full"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-[var(--border)] rounded-full"
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 0.3 }}
                     transition={{ delay: 1.2, duration: 1 }}

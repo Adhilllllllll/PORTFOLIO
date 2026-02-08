@@ -34,7 +34,7 @@ export default function ProjectCard({ project }) {
                                 <svg width="100%" height="100%">
                                     <defs>
                                         <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5" />
+                                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-[var(--text-primary)]" />
                                         </pattern>
                                     </defs>
                                     <rect width="100%" height="100%" fill="url(#grid)" />
@@ -46,19 +46,19 @@ export default function ProjectCard({ project }) {
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                             >
-                                <div className="w-32 h-32 border border-white/10 rounded-full" />
+                                <div className="w-32 h-32 border border-[var(--border)] rounded-full" />
                             </motion.div>
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-white/5 rounded-full" />
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-[var(--border)] rounded-full" />
                         </>
                     )}
 
                     {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent" />
 
                     {/* Featured badge */}
                     {featured && (
                         <div className="absolute top-4 left-4 z-10">
-                            <span className="px-3 py-1.5 text-xs font-semibold rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
+                            <span className="px-3 py-1.5 text-xs font-semibold rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg">
                                 Featured Project
                             </span>
                         </div>
@@ -68,24 +68,24 @@ export default function ProjectCard({ project }) {
                 {/* Content */}
                 <div className="p-6 md:p-8">
                     <header className="mb-4">
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                        <h3 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-indigo-400 transition-colors">
                             {title}
                         </h3>
                         <p className="text-indigo-400 font-medium">{subtitle}</p>
                     </header>
 
-                    <p className="text-zinc-400 mb-6 leading-relaxed">{description}</p>
+                    <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">{description}</p>
 
                     {/* Features */}
                     <div className="mb-6">
-                        <h4 className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">
+                        <h4 className="text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider mb-3">
                             Key Features
                         </h4>
                         <ul className="grid gap-2">
                             {features.slice(0, 4).map((feature, index) => (
                                 <li
                                     key={index}
-                                    className="flex items-start gap-2 text-sm text-zinc-400"
+                                    className="flex items-start gap-2 text-sm text-[var(--text-secondary)]"
                                 >
                                     <span className="text-indigo-500 mt-0.5">▹</span>
                                     <span>{feature}</span>
@@ -96,14 +96,14 @@ export default function ProjectCard({ project }) {
 
                     {/* Tech Stack */}
                     <div className="mb-6">
-                        <h4 className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">
+                        <h4 className="text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider mb-3">
                             Built With
                         </h4>
                         <div className="flex flex-wrap gap-2">
                             {techStack.map((tech) => (
                                 <span
                                     key={tech}
-                                    className="px-2.5 py-1 text-xs font-medium bg-white/5 border border-white/10 rounded-md text-zinc-400"
+                                    className="px-2.5 py-1 text-xs font-medium bg-[var(--surface-elevated)] border border-[var(--border)] rounded-md text-[var(--text-secondary)]"
                                 >
                                     {tech}
                                 </span>
@@ -112,13 +112,13 @@ export default function ProjectCard({ project }) {
                     </div>
 
                     {/* Links */}
-                    <div className="flex gap-4 pt-4 border-t border-white/5">
+                    <div className="flex gap-4 pt-4 border-t border-[var(--border)]">
                         {links.github && (
                             <a
                                 href={links.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+                                className="inline-flex items-center gap-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                             >
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path
@@ -135,7 +135,7 @@ export default function ProjectCard({ project }) {
                                 href={links.live}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+                                className="inline-flex items-center gap-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                             >
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path

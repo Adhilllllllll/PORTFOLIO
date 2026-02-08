@@ -34,7 +34,7 @@ export default function Footer() {
     const emailSocial = socials.find((s) => s.id === "email");
 
     return (
-        <footer className="relative border-t border-white/5">
+        <footer className="relative border-t border-[var(--border)]">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 {/* Connect on Social Media Section */}
                 <motion.div
@@ -43,7 +43,7 @@ export default function Footer() {
                     viewport={{ once: true }}
                     className="text-center"
                 >
-                    <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
+                    <h3 className="text-2xl md:text-3xl font-semibold text-[var(--text-primary)] mb-6">
                         Feel free to connect on social media.
                     </h3>
 
@@ -55,7 +55,7 @@ export default function Footer() {
                                 href={social.href}
                                 target={social.id !== "email" ? "_blank" : undefined}
                                 rel={social.id !== "email" ? "noopener noreferrer" : undefined}
-                                className="p-3 rounded-xl text-zinc-400 hover:text-white hover:bg-white/5 border border-white/10 hover:border-white/20 transition-all"
+                                className="p-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-elevated)] border border-[var(--border)] hover:border-[var(--border-hover)] transition-all"
                                 aria-label={social.label}
                             >
                                 {socialIcons[social.icon]}
@@ -67,7 +67,7 @@ export default function Footer() {
                     {emailSocial && (
                         <a
                             href={emailSocial.href}
-                            className="inline-block px-8 py-2.5 border border-white/20 text-white font-medium text-sm tracking-wider rounded-lg hover:bg-white hover:text-black transition-all duration-300 mb-8"
+                            className="inline-block px-8 py-2.5 border border-[var(--border)] text-[var(--text-primary)] font-medium text-sm tracking-wider rounded-lg hover:bg-[var(--text-primary)] hover:text-[var(--background)] transition-all duration-300 mb-8"
                         >
                             Let&apos;s Talk
                         </a>
@@ -75,7 +75,7 @@ export default function Footer() {
 
                     {/* Developer Credit */}
                     <div className="flex items-center justify-center pt-4">
-                        <p className="text-sm text-zinc-500">
+                        <p className="text-sm text-[var(--text-tertiary)]">
                             Developed with{" "}
                             <span className="text-red-500">❤</span> by Adhil P
                         </p>

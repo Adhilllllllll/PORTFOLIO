@@ -68,7 +68,7 @@ export default function Skills() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="text-4xl md:text-5xl font-bold text-white"
+                    className="text-4xl md:text-5xl font-bold text-[var(--text-primary)]"
                 >
                     Skills & Technologies
                 </motion.h2>
@@ -93,7 +93,7 @@ export default function Skills() {
                             <div className="flex items-center gap-3 mb-6">
                                 <span className="text-2xl">{config.icon}</span>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white">
+                                    <h3 className="text-lg font-semibold text-[var(--text-primary)]">
                                         {config.label}
                                     </h3>
                                     <div className={`h-0.5 w-12 bg-gradient-to-r ${config.gradient} mt-1`} />
@@ -110,7 +110,7 @@ export default function Skills() {
                                         key={skill}
                                         variants={skillVariants}
                                         transition={{ delay: index * 0.05 }}
-                                        className="px-3 py-1.5 text-sm font-medium bg-white/5 border border-white/10 rounded-lg text-zinc-300 hover:bg-white/10 hover:border-white/20 hover:text-white transition-all cursor-default"
+                                        className="px-3 py-1.5 text-sm font-medium bg-[var(--surface-elevated)] border border-[var(--border)] rounded-lg text-[var(--text-secondary)] hover:bg-[var(--surface)] hover:border-[var(--border-hover)] hover:text-[var(--text-primary)] transition-all cursor-default"
                                     >
                                         {skill}
                                     </motion.span>

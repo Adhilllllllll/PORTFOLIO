@@ -65,7 +65,8 @@ export default function Contact() {
                     <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-4">
                         Contact
                     </h2>
-                    <p className="text-2xl text-white font-semibold">Get In Touch.</p>
+                    <p className="text-2xl text-[var(--text-primary)] font-semibold mb-2">Get In Touch.</p>
+                    <p className="text-lg text-[var(--text-secondary)]">Available for freelancing</p>
                 </motion.div>
 
                 {/* Contact Form */}
@@ -87,7 +88,7 @@ export default function Contact() {
                             onChange={handleChange}
                             required
                             placeholder="Name"
-                            className="w-full px-6 py-4 bg-transparent border-2 border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition-all duration-300 group-hover:border-zinc-500"
+                            className="w-full px-6 py-4 bg-[var(--surface-elevated)] border-2 border-[var(--border)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none focus:border-purple-500 transition-all duration-300 group-hover:border-[var(--border-hover)]"
                         />
                         <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
                     </div>
@@ -101,7 +102,7 @@ export default function Contact() {
                             onChange={handleChange}
                             required
                             placeholder="Email"
-                            className="w-full px-6 py-4 bg-transparent border-2 border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition-all duration-300 group-hover:border-zinc-500"
+                            className="w-full px-6 py-4 bg-[var(--surface-elevated)] border-2 border-[var(--border)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none focus:border-purple-500 transition-all duration-300 group-hover:border-[var(--border-hover)]"
                         />
                         <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
                     </div>
@@ -115,7 +116,7 @@ export default function Contact() {
                             required
                             placeholder="Message"
                             rows={6}
-                            className="w-full px-6 py-4 bg-transparent border-2 border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 transition-all duration-300 resize-none group-hover:border-zinc-500"
+                            className="w-full px-6 py-4 bg-[var(--surface-elevated)] border-2 border-[var(--border)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none focus:border-purple-500 transition-all duration-300 resize-none group-hover:border-[var(--border-hover)]"
                         />
                         <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
                     </div>
@@ -126,7 +127,7 @@ export default function Contact() {
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             className={`text-sm ${status.type === "success" ? "text-green-400" :
-                                    status.type === "error" ? "text-red-400" : "text-zinc-400"
+                                status.type === "error" ? "text-red-400" : "text-[var(--text-tertiary)]"
                                 }`}
                         >
                             {status.message}
@@ -139,7 +140,7 @@ export default function Contact() {
                         disabled={isSubmitting}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full md:w-auto px-12 py-4 bg-white text-black font-semibold rounded-lg hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full md:w-auto px-12 py-4 bg-[var(--text-primary)] text-[var(--background)] font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         {isSubmitting ? "Sending..." : "Send"}
                     </motion.button>

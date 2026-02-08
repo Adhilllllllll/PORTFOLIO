@@ -25,16 +25,16 @@ export default function Projects() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="text-4xl md:text-5xl font-bold text-white mb-4"
+                    className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4"
                 >
-                    Featured Work
+                    Recent Works
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="text-zinc-500 max-w-xl mx-auto"
+                    className="text-[var(--text-secondary)] max-w-xl mx-auto"
                 >
                     Production-ready applications built with modern technologies and best practices.
                 </motion.p>
@@ -54,7 +54,7 @@ export default function Projects() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-2xl font-semibold text-white mb-8 text-center"
+                        className="text-2xl font-semibold text-[var(--text-primary)] mb-8 text-center"
                     >
                         Other Projects
                     </motion.h3>
