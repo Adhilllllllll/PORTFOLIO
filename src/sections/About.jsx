@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionWrapper from "@/components/common/SectionWrapper";
+import ScrollReveal from "@/components/common/ScrollReveal";
 
 const aboutContent = {
     title: "About",
@@ -71,7 +72,7 @@ export default function About() {
 
                     <motion.h2
                         variants={itemVariants}
-                        className="text-4xl md:text-5xl font-bold text-white mb-8"
+                        className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-8"
                     >
                         {aboutContent.title}
                     </motion.h2>
@@ -81,7 +82,7 @@ export default function About() {
                             <motion.p
                                 key={index}
                                 variants={itemVariants}
-                                className="text-zinc-400 leading-relaxed text-lg"
+                                className="text-[var(--text-secondary)] leading-relaxed text-lg"
                             >
                                 {paragraph}
                             </motion.p>
@@ -107,13 +108,13 @@ export default function About() {
                             <div className="flex items-start gap-4">
                                 <span className="text-3xl">{item.icon}</span>
                                 <div>
-                                    <p className="text-sm text-zinc-500 uppercase tracking-wider mb-1">
+                                    <p className="text-sm text-[var(--text-tertiary)] uppercase tracking-wider mb-1">
                                         {item.label}
                                     </p>
-                                    <p className="text-xl font-semibold text-white mb-1">
+                                    <p className="text-xl font-semibold text-[var(--text-primary)] mb-1">
                                         {item.value}
                                     </p>
-                                    <p className="text-sm text-zinc-500">
+                                    <p className="text-sm text-[var(--text-secondary)]">
                                         {item.description}
                                     </p>
                                 </div>

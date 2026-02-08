@@ -1,7 +1,30 @@
 @import "tailwindcss";
 
-/* Premium Dark Theme */
+/* Theme Variables */
+/* Default to Dark Mode variables if no class, but we will toggle classes */
 :root {
+  /* Light Mode Defaults */
+  --background: #ffffff;
+  --background-secondary: #f3f4f6; /* gray-100 */
+  --surface: #ffffff;
+  --surface-elevated: #f9fafb; /* gray-50 */
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.15);
+
+  --text-primary: #18181b; /* zinc-900 */
+  --text-secondary: #52525b; /* zinc-600 */
+  --text-tertiary: #a1a1aa; /* zinc-400 */
+
+  --accent: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-glow: rgba(99, 102, 241, 0.25);
+
+  --gradient-start: #6366f1;
+  --gradient-end: #a855f7;
+}
+
+/* Dark Mode Overrides */
+.dark {
   --background: #050505;
   --background-secondary: #0a0a0a;
   --surface: #111111;
@@ -39,6 +62,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Animated gradient background */
@@ -50,6 +74,8 @@ body {
   bottom: 0;
   z-index: -1;
   overflow: hidden;
+  background: var(--background);
+  transition: background 0.3s ease;
 }
 
 .gradient-orb {
@@ -58,6 +84,16 @@ body {
   filter: blur(80px);
   opacity: 0.3;
   animation: float 20s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+.dark .gradient-orb {
+    opacity: 0.3;
+}
+
+:root:not(.dark) .gradient-orb {
+    opacity: 0.5; /* Slightly more visible in light mode */
+    filter: blur(100px);
 }
 
 .gradient-orb-1 {
@@ -89,45 +125,46 @@ body {
 }
 
 @keyframes float {
-
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  25% {
-    transform: translate(30px, -30px) scale(1.05);
-  }
-
-  50% {
-    transform: translate(-20px, 20px) scale(0.95);
-  }
-
-  75% {
-    transform: translate(-30px, -20px) scale(1.02);
-  }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -30px) scale(1.05); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(-30px, -20px) scale(1.02); }
 }
 
 /* Glassmorphism */
 .glass {
-  background: rgba(17, 17, 17, 0.7);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
 }
 
+.dark .glass {
+  background: rgba(17, 17, 17, 0.7);
+}
+
 .glass-card {
-  background: rgba(26, 26, 26, 0.6);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   transition: all 0.3s ease;
 }
 
+.dark .glass-card {
+  background: rgba(26, 26, 26, 0.6);
+}
+
 .glass-card:hover {
-  background: rgba(26, 26, 26, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   border-color: var(--border-hover);
   transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass-card:hover {
+  background: rgba(26, 26, 26, 0.8);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
 }
 
 /* Gradient text */
@@ -157,18 +194,26 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 3px;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
 /* Selection color */
 ::selection {
-  background-color: rgba(99, 102, 241, 0.4);
-  color: #ffffff;
+  background-color: var(--accent-glow);
+  color: var(--text-primary);
 }
 
 /* Focus visible outline */
@@ -192,8 +237,12 @@ button {
   height: 100%;
   pointer-events: none;
   z-index: 1000;
-  opacity: 0.015;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.dark .noise {
+    opacity: 0.015;
 }
 
 /* Animated underline */
@@ -248,4 +297,8 @@ button {
 /* Project image placeholder */
 .project-image-placeholder {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.dark .project-image-placeholder {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
 }

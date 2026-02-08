@@ -70,7 +70,7 @@ export default function Experience() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="text-4xl md:text-5xl font-bold text-white"
+                    className="text-4xl md:text-5xl font-bold text-[var(--text-primary)]"
                 >
                     Experience
                 </motion.h2>
@@ -97,14 +97,14 @@ export default function Experience() {
                         <div className="glass-card rounded-2xl p-6 md:p-8 group">
                             <div className="flex items-start gap-4">
                                 {/* Icon */}
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/10 flex items-center justify-center text-2xl shrink-0">
+                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-[var(--border)] flex items-center justify-center text-2xl shrink-0">
                                     {exp.icon}
                                 </div>
 
                                 <div className="flex-1 min-w-0">
                                     {/* Header */}
                                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                                        <h3 className="text-xl font-semibold text-white group-hover:text-indigo-400 transition-colors">
+                                        <h3 className="text-xl font-semibold text-[var(--text-primary)] group-hover:text-indigo-400 transition-colors">
                                             {exp.title}
                                         </h3>
                                         <span className="text-sm font-medium text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full w-fit">
@@ -113,7 +113,7 @@ export default function Experience() {
                                     </div>
 
                                     {/* Description */}
-                                    <p className="text-zinc-400 mb-4">
+                                    <p className="text-[var(--text-secondary)] mb-4">
                                         {exp.description}
                                     </p>
 
@@ -122,7 +122,7 @@ export default function Experience() {
                                         {exp.highlights.map((highlight, i) => (
                                             <li
                                                 key={i}
-                                                className="flex items-start gap-2 text-sm text-zinc-500"
+                                                className="flex items-start gap-2 text-sm text-[var(--text-tertiary)]"
                                             >
                                                 <span className="text-indigo-500 mt-0.5">▹</span>
                                                 <span>{highlight}</span>

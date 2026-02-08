@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -53,19 +54,21 @@ export const viewport = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en" className={inter.variable}>
-            <body className="bg-[#050505] text-white antialiased">
-                {/* Animated gradient background */}
-                <div className="gradient-bg">
-                    <div className="gradient-orb gradient-orb-1" />
-                    <div className="gradient-orb gradient-orb-2" />
-                    <div className="gradient-orb gradient-orb-3" />
-                </div>
+            <body className="bg-[var(--background)] text-[var(--text-primary)] antialiased transition-colors duration-300">
+                <ThemeProvider>
+                    {/* Animated gradient background */}
+                    <div className="gradient-bg">
+                        <div className="gradient-orb gradient-orb-1" />
+                        <div className="gradient-orb gradient-orb-2" />
+                        <div className="gradient-orb gradient-orb-3" />
+                    </div>
 
-                {/* Noise texture overlay */}
-                <div className="noise" />
+                    {/* Noise texture overlay */}
+                    <div className="noise" />
 
-                <Header />
-                <main className="relative z-10">{children}</main>
+                    <Header />
+                    <main className="relative z-10">{children}</main>
+                </ThemeProvider>
             </body>
         </html>
     );

@@ -11,15 +11,15 @@ export default function Button({
     ...props
 }) {
     const baseStyles =
-        "inline-flex items-center justify-center px-6 py-3.5 font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#050505]";
+        "inline-flex items-center justify-center px-6 py-3.5 font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--background)]";
 
     const variants = {
         primary:
             "bg-gradient-to-r from-indigo-500 to-purple-500 text-white hover:opacity-90 focus:ring-indigo-500 shadow-lg shadow-indigo-500/25",
         secondary:
-            "bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 focus:ring-white/20",
+            "bg-[var(--surface-elevated)] border border-[var(--border)] text-[var(--text-primary)] hover:bg-[var(--surface)] hover:border-[var(--border-hover)] focus:ring-[var(--border)]",
         ghost:
-            "text-zinc-400 hover:text-white hover:bg-white/5 focus:ring-white/10",
+            "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-elevated)] focus:ring-[var(--border)]",
     };
 
     const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
